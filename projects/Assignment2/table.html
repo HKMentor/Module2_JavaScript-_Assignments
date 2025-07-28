@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multiplication Table</title>
+  <style>
+    body {
+      background-color: #f0fff0;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+    }
+    h1 {
+      color: #4caf50;
+      margin-top: 30px;
+    }
+    .table-box {
+      font-size: 22px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧮 Multiplication Table</h1>
+  <div class="table-box">
+    <script>
+      let num = prompt("Enter a number to see its table:");
+
+      // Convert to number
+      num = parseInt(num);
+
+      // Check if valid number
+      if (!isNaN(num)) {
+        document.write("<h2>Table of " + num + "</h2>");
+        for (let i = 1; i <= 10; i++) {
+          document.write(num + " x " + i + " = " + (num * i) + "<br>");
+        }
+      } else {
+        document.write("<h3>Please refresh and enter a valid number.</h3>");
+      }
+    </script>
+  </div>
+    <div style="margin-top: 40px;">
+  <a href="index.html" style="
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Comic Sans MS', cursive;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    transition: 0.3s;
+  " onmouseover="this.style.backgroundColor='#45a049'" 
+     onmouseout="this.style.backgroundColor='#4caf50'">
+    🔙 Back to Home
+  </a>
+</div>
+
+</body>
+</html>

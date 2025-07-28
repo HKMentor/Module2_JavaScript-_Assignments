@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Module 2 - JavaScript Assignment</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background-color: #fffaf0;
+      margin: 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #4caf50;
+      padding: 15px;
+      color: white;
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 50px auto;
+      max-width: 1000px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #e0ffe0, #d1fcd1);
+      border: 2px solid #4caf50;
+      border-radius: 15px;
+      width: 280px;
+      margin: 20px;
+      padding: 35px 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      background-color: #bfffbf;
+      transform: scale(1.05);
+    }
+
+    .card h2 {
+      color: #2c2c2c;
+      font-size: 22px;
+      margin: 0;
+    }
+
+    footer {
+      background-color: #4caf50;
+      color: white;
+      padding: 15px 10px;
+      margin-top: 50px;
+      font-size: 18px;
+    }
+
+    a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: #e0ffe0;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>📘 Module 2 - JavaScript Assignment</nav>
+
+  <div class="container">
+    <div class="card" onclick="location.href='forward.html'">
+      <h2>📈 Forward Counting</h2>
+    </div>
+    <div class="card" onclick="location.href='backward.html'">
+      <h2>📉 Backward Counting</h2>
+    </div>
+    <div class="card" onclick="location.href='table.html'">
+      <h2>🧮 Multiplication Table</h2>
+    </div>
+  </div>
+
+  <footer>
+    📩 Contact Me on Instagram: 
+    <a href="https://www.instagram.com/hooria_codehub" target="_blank">@hooria_codehub</a>
+  </footer>
+
+</body>
+</html>

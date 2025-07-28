@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Backward Counting</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #d63384;
+      margin-top: 30px;
+      font-size: 32px;
+    }
+    h2 {
+      color: #aa1c5b;
+      margin-top: 10px;
+    }
+    .count-box {
+      font-size: 24px;
+      margin-top: 20px;
+      line-height: 1.8;
+      color: #4b004b;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📉 Backward Counting</h1>
+
+  <div class="count-box">
+    <script>
+      let start = prompt("Enter the number to start backward counting from (max 100):");
+      start = parseInt(start);
+
+      if (!isNaN(start) && start <= 100 && start >= 1) {
+        document.write("<h2>Counting backward from " + start + " to 1</h2>");
+        for (let i = start; i >= 1; i--) {
+          document.write(i + ' ');
+        }
+      } else {
+        document.write("<h3>Please refresh and enter a valid number between 1 and 100.</h3>");
+      }
+    </script>
+  </div>
+  <div style="margin-top: 40px;">
+  <a href="index.html" style="
+    background-color: #4caf50;
+    color: white;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-family: 'Comic Sans MS', cursive;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    transition: 0.3s;
+  " onmouseover="this.style.backgroundColor='#45a049'" 
+     onmouseout="this.style.backgroundColor='#4caf50'">
+    🔙 Back to Home
+  </a>
+</div>
+
+
+</body>
+</html>
