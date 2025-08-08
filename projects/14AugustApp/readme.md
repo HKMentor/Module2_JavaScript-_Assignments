@@ -31,14 +31,14 @@ I love building interactive front-end projects and learning through real-world i
 This project is part of my creative learning journey. 🌱
 
 📍 Connect with me:  
-Instagram: [@hk.collectionn](https://www.instagram.com/hk.collectionn/)  
-TikTok: [@hk_collection](https://www.tiktok.com/@hk_collection)
+Instagram: [@hk.collectionn](https://www.instagram.com/hooria_codehub/)  
 
 ---
 
 ## 🔗 Live Demo
 
-👉 [Click here to view the live project](https://your-live-link-here.com)
+👉 [Click here to view the live project](https://hooria-14-aug-quiz.netlify.app/)
+
 
 > 💡 *Replace the above link with your actual deployed URL when available*
 
@@ -53,4 +53,5 @@ TikTok: [@hk_collection](https://www.tiktok.com/@hk_collection)
 - [html2canvas](https://html2canvas.hertzen.com/) for card image download
 
 ---
+
 
