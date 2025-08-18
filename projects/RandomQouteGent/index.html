@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Qurani Ayaat Generator</title>
+
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root{
+      --card-w: 720px;
+      --accent: rgba(255,255,255,0.9);
+      --glass: rgba(255,255,255,0.08);
+      --glass-2: rgba(255,255,255,0.06);
+      --shadow: 0 10px 30px rgba(14,20,30,0.25);
+      --round: 16px;
+      --trans: 450ms cubic-bezier(.2,.9,.3,1);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; font-family: 'Scheherazade New', serif, Inter, sans-serif;}
+    body{
+      display:grid;
+      place-items:center;
+      padding:24px;
+      background: linear-gradient(120deg,#0f172a,#0b1020);
+      transition: background var(--trans);
+      color:var(--accent);
+    }
+
+    .app {
+      width: min(var(--card-w), 96vw);
+      border-radius: var(--round);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      padding: 28px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(6px) saturate(120%);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom: 18px;
+    }
+    .brand{display:flex; align-items:center; gap:12px;}
+    .logo {
+      width:48px; height:48px; border-radius:12px;
+      background: rgba(255,255,255,0.12);
+      display:grid; place-items:center;
+      color: #fff; font-weight:700;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    h1{font-size:1.05rem; margin:0;}
+    p.subtitle{margin:0;font-size:0.85rem; opacity:0.9}
+
+    main{
+      padding: 18px 6px 6px 6px;
+      min-height: 220px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+        .socialIcon a {
+      color: #db0e52; /* Instagram pinkish color */
+      font-size: 34px;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+    .socialIcon a:hover {
+      color: #dcccd5;
+    }
+    .quote-wrap{
+      padding: 22px;
+      border-radius: 12px;
+      background: linear-gradient(180deg,var(--glass), var(--glass-2));
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2) inset;
+      transition: transform var(--trans), opacity var(--trans);
+    }
+
+    .quote-text {
+      font-size: 1.4rem;
+      line-height:1.8;
+      margin:0;
+      color: #fff;
+      font-weight:600;
+      text-align: center;
+    }
+    .translation {
+      margin-top: 14px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      font-style: italic;
+    }
+    .author {
+      margin-top:12px;
+      text-align:right;
+      font-weight:600;
+      font-size:0.95rem;
+      opacity:0.95;
+    }
+
+    .controls{
+      display:flex;
+      gap:12px;
+      justify-content:space-between;
+      margin-top:8px;
+      flex-wrap:wrap;
+    }
+
+    button.btn{
+      background: rgba(255,255,255,0.12);
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    button.btn:hover{ background: rgba(255,255,255,0.16);}
+    .small{ padding:8px 10px; font-size:0.9rem; border-radius:8px;}
+    .pill{ border-radius:999px; }
+
+    footer{
+      margin-top:16px; text-align:center; font-size:0.85rem; color: rgba(255,255,255,0.85);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <header>
+      <div class="brand">
+        <div class="logo">📖</div>
+        <div>
+          <h1>Qurani Ayaat Generator</h1>
+          <p class="subtitle">Random Ayaat with Urdu Translation</p>
+        </div>
+      </div>
+      <div class="status" id="autoStatus">Auto: OFF</div>
+       <div class="socialIcon">
+            <a href="https://www.instagram.com/hooria_codehub" target="_blank" title="Follow on Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </header>
+
+    <main>
+      <div class="quote-wrap" id="quoteWrap">
+        <p class="quote-text" id="quoteText">Loading ayaat…</p>
+        <p class="translation" id="quoteTranslation">ترجمہ لوڈ ہو رہا ہے…</p>
+        <div class="author" id="quoteAuthor">&mdash; Surah Reference</div>
+      </div>
+
+      <div class="controls">
+        <div class="left-actions">
+          <button class="btn pill" id="newQuoteBtn">🔁 New Ayah</button>
+          <button class="btn small" id="copyBtn">📋 Copy</button>
+        </div>
+        <div class="right-actions">
+          <button class="btn small pill" id="autoToggle">▶ Auto</button>
+          <select id="speedSelect" class="small">
+            <option value="6000">6s</option>
+            <option value="4000">4s</option>
+            <option value="2000">2s</option>
+          </select>
+        </div>
+      </div>
+
+      <footer>
+        Tip: Click <strong>New Ayah</strong> or enable <strong>Auto</strong>.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const quotes = [
+      {
+        text: "وَقُل رَّبِّ زِدْنِي عِلْمًا",
+        translation: "اور کہہ دیجیے: اے میرے رب! میرا علم بڑھا دے۔",
+        author: "Surah Ta-Ha, 20:114"
+      },
+      {
+        text: "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+        translation: "یقیناً مشکل کے ساتھ آسانی ہے۔",
+        author: "Surah Ash-Sharh, 94:6"
+      },
+      {
+        text: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ",
+        translation: "بے شک اللہ صبر کرنے والوں کے ساتھ ہے۔",
+        author: "Surah Al-Baqarah, 2:153"
+      },
+      {
+        text: "وَمَن يَتَّقِ اللَّهَ يَجْعَل لَّهُ مَخْرَجًا",
+        translation: "اور جو اللہ سے ڈرتا ہے، اللہ اس کے لیے نکلنے کا راستہ بنا دیتا ہے۔",
+        author: "Surah At-Talaq, 65:2"
+      },
+      {
+        text: "إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ",
+        translation: "بے شک اللہ توکل کرنے والوں سے محبت کرتا ہے۔",
+        author: "Surah Aal-e-Imran, 3:159"
+      }
+    ];
+
+    const backgrounds = [
+    
+  "linear-gradient(120deg, #0a1418, #18272d, #223743)",  // Darker teal/blue
+  "linear-gradient(120deg, #324d9b, #814f91)",           // Darker blue-purple
+  "linear-gradient(120deg, #cc654c, #d98257)",           // Darker peach-orange
+  "linear-gradient(120deg, #0099cc, #005cb8)",           // Darker cyan-blue
+  "linear-gradient(120deg, #0d7a6c, #2ecc71)",           // Darker green
+  "linear-gradient(120deg, #bb075e, #cc5500)"            // Darker pink-orange
+    ];
+
+    const quoteText = document.getElementById('quoteText');
+    const quoteTranslation = document.getElementById('quoteTranslation');
+    const quoteAuthor = document.getElementById('quoteAuthor');
+    const newQuoteBtn = document.getElementById('newQuoteBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const autoToggle = document.getElementById('autoToggle');
+    const autoStatus = document.getElementById('autoStatus');
+    const speedSelect = document.getElementById('speedSelect');
+
+    let lastQuoteIndex = -1;
+    let lastBgIndex = -1;
+    let autoInterval = null;
+
+    function randIndex(arr){ return Math.floor(Math.random() * arr.length); }
+    function pickRandomButNotSame(arr, lastIndex){
+      if(arr.length === 1) return 0;
+      let idx;
+      do { idx = randIndex(arr); } while (idx === lastIndex);
+      return idx;
+    }
+
+    function renderQuoteByIndex(qIdx, bgIdx){
+      const q = quotes[qIdx];
+      quoteText.textContent = q.text;
+      quoteTranslation.textContent = q.translation;
+      quoteAuthor.textContent = `— ${q.author}`;
+      document.body.style.background = backgrounds[bgIdx];
+      lastQuoteIndex = qIdx;
+      lastBgIndex = bgIdx;
+    }
+
+    function showRandomQuote(){
+      const qIdx = pickRandomButNotSame(quotes, lastQuoteIndex);
+      const bgIdx = pickRandomButNotSame(backgrounds, lastBgIndex);
+      renderQuoteByIndex(qIdx, bgIdx);
+    }
+
+    async function copyCurrent(){
+      const text = `${quoteText.textContent}\n${quoteTranslation.textContent}\n${quoteAuthor.textContent}`;
+      try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = "Copied ✓";
+        setTimeout(()=> copyBtn.textContent = "📋 Copy", 1300);
+      } catch {
+        alert("Copy failed — select and copy manually.");
+      }
+    }
+
+    function toggleAuto(){
+      if(autoInterval){
+        clearInterval(autoInterval);
+        autoInterval = null;
+        autoStatus.textContent = "Auto: OFF";
+        autoToggle.textContent = "▶ Auto";
+      } else {
+        const speed = Number(speedSelect.value) || 6000;
+        autoInterval = setInterval(showRandomQuote, speed);
+        autoStatus.textContent = "Auto: ON";
+        autoToggle.textContent = "⏸ Stop";
+      }
+    }
+
+    speedSelect.addEventListener('change', () => {
+      if(autoInterval){
+        clearInterval(autoInterval);
+        autoInterval = setInterval(showRandomQuote, Number(speedSelect.value));
+      }
+    });
+
+    newQuoteBtn.addEventListener('click', showRandomQuote);
+    copyBtn.addEventListener('click', copyCurrent);
+    autoToggle.addEventListener('click', toggleAuto);
+
+    window.addEventListener('load', () => {
+      document.body.style.background = backgrounds[0];
+      const firstIdx = pickRandomButNotSame(quotes, -1);
+      const bgFirst = pickRandomButNotSame(backgrounds, -1);
+      renderQuoteByIndex(firstIdx, bgFirst);
+    });
+  </script>
+</body>
+</html>
