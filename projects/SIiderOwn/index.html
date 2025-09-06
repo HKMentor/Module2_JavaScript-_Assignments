@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beautiful Slider</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <div class="navbar">
+      <div class="logo">MyGallery</div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Welcome to My Image Gallery</h1>
+    <p>Enjoy the modern image slider with thumbnails & navigation</p>
+  </section>
+
+  <!-- Main Slider -->
+  <div class="slider">
+    <img src="https://picsum.photos/id/1015/900/500" class="active" />
+    <img src="https://picsum.photos/id/1016/900/500" />
+    <img src="https://picsum.photos/id/1018/900/500" />
+    <img src="https://picsum.photos/id/1020/900/500" />
+
+    <!-- Arrows -->
+    <div class="left-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+    <div class="right-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+  </div>
+
+  <!-- Thumbnails -->
+  <div class="thumbnails">
+    <img src="https://picsum.photos/id/1015/200/100" class="active-thumb" />
+    <img src="https://picsum.photos/id/1016/200/100" />
+    <img src="https://picsum.photos/id/1018/200/100" />
+    <img src="https://picsum.photos/id/1020/200/100" />
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 MyGallery. All Rights Reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    const slides = document.querySelectorAll(".slider img");
+    const thumbs = document.querySelectorAll(".thumbnails img");
+    const nextBtn = document.querySelector(".right-arrow");
+    const prevBtn = document.querySelector(".left-arrow");
+
+    let index = 0;
+
+    function showSlide(i) {
+      slides.forEach((img, idx) => {
+        img.style.display = idx === i ? "block" : "none";
+        thumbs[idx].classList.toggle("active-thumb", idx === i);
+      });
+      index = i;
+    }
+
+    // Next & Prev Button Events
+    nextBtn.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    });
+
+    prevBtn.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+    });
+
+    // Thumbnails click
+    thumbs.forEach((thumb, i) => {
+      thumb.addEventListener("click", () => showSlide(i));
+    });
+
+    // Auto Slide (optional)
+    setInterval(() => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }, 4000);
+
+    // First load
+    showSlide(index);
+  </script>
+
+</body>
+</html>

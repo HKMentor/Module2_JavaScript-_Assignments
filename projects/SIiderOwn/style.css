@@ -1,0 +1,152 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #f8cdda, #1d2b64);
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Navbar */
+header {
+  background: #1d2b64;
+  color: white;
+  padding: 15px 5%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #f8cdda;
+}
+
+/* Hero Section */
+.hero {
+  flex: 1;
+  text-align: center;
+  padding: 40px 0;
+}
+
+/* Main Slider */
+.slider {
+  width: 70%;
+  height: 500px;
+  margin: 20px auto;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.slider img {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+      object-fit: cover;
+}
+
+/* Arrows */
+.right-arrow, .left-arrow {
+  position: absolute;
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: 0.3s;
+}
+
+.right-arrow:hover, .left-arrow:hover {
+  background-color: crimson;
+}
+
+.right-arrow { right: 15px; }
+.left-arrow { left: 15px; }
+
+/* Thumbnails */
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px auto;
+  width: 75%;
+  flex-wrap: wrap;
+}
+
+.thumbnails img {
+  height: 80px;
+  width: 120px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.thumbnails img:hover {
+  transform: scale(1.1);
+  border: 2px solid #1d2b64;
+}
+
+.active-thumb {
+  border: 3px solid crimson;
+}
+
+/* Footer */
+footer {
+  background: #1d2b64;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: auto;
+}
+
+footer .social-icons {
+  margin-top: 10px;
+}
+
+footer .social-icons a {
+  color: white;
+  margin: 0 10px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+footer .social-icons a:hover {
+  color: #f8cdda;
+}
