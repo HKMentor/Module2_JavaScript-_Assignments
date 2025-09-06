@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Functions Assignment</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f9f9f9; padding:20px; }
+    h1 { color: darkgreen; }
+    h2 { margin-top: 20px; color: darkblue; }
+    .output { background:#eef9ff; padding:8px; margin:8px 0; border-left:4px solid darkblue; }
+  </style>
+</head>
+<body>
+  <h1>Assignment # 35–38 (Functions)</h1>
+
+  <script>
+    // 1. Current date & time
+    function showDateTime() {
+      var now = new Date();
+      return now;
+    }
+    document.write("<h2>1. Current Date & Time</h2>");
+    document.write("<div class='output'>" + showDateTime() + "</div>");
+
+    // 2. Greeting user
+    function greet(fname, lname) {
+      return "Hello, " + fname + " " + lname;
+    }
+    document.write("<h2>2. Greeting</h2>");
+    document.write("<div class='output'>" + greet("Ali","Khan") + "</div>");
+
+    // 3. Add two numbers
+    function add(num1, num2) {
+      return num1 + num2;
+    }
+    document.write("<h2>3. Sum</h2>");
+    document.write("<div class='output'>" + add(5,7) + "</div>");
+
+    // 4. Calculator
+    function calculator(num1, num2, operator) {
+      if (operator === "+") return num1 + num2;
+      if (operator === "-") return num1 - num2;
+      if (operator === "*") return num1 * num2;
+      if (operator === "/") return num1 / num2;
+      return "Invalid operator";
+    }
+    document.write("<h2>4. Calculator</h2>");
+    document.write("<div class='output'>" + calculator(10, 5, "*") + "</div>");
+
+    // 5. Square
+    function square(num) {
+      return num * num;
+    }
+    document.write("<h2>5. Square</h2>");
+    document.write("<div class='output'>" + square(6) + "</div>");
+
+    // 6. Factorial
+    function factorial(n) {
+      var result = 1;
+      for (var i=1; i<=n; i++) {
+        result *= i;
+      }
+      return result;
+    }
+    document.write("<h2>6. Factorial</h2>");
+    document.write("<div class='output'>" + factorial(5) + "</div>");
+
+    // 7. Counting
+    function counting(start, end) {
+      var result = "";
+      for (var i=start; i<=end; i++) {
+        result += i + " ";
+      }
+      return result;
+    }
+    document.write("<h2>7. Counting</h2>");
+    document.write("<div class='output'>" + counting(1,10) + "</div>");
+
+    // 8. Hypotenuse with nested function
+    function calculateHypotenuse(base, perp) {
+      function square(n) {
+        return n*n;
+      }
+      var hypo = Math.sqrt(square(base) + square(perp));
+      return hypo;
+    }
+    document.write("<h2>8. Hypotenuse</h2>");
+    document.write("<div class='output'>" + calculateHypotenuse(3,4) + "</div>");
+
+    // 9. Rectangle Area
+    function area(width, height) {
+      return width * height;
+    }
+    var w = 5, h = 10;
+    document.write("<h2>9. Rectangle Area</h2>");
+    document.write("<div class='output'>Value Args: " + area(3,7) + "<br>");
+    document.write("Variable Args: " + area(w,h) + "</div>");
+
+    // 10. Palindrome
+    function isPalindrome(str) {
+      var clean = str.toLowerCase();
+      var reverse = clean.split("").reverse().join("");
+      return clean === reverse;
+    }
+    document.write("<h2>10. Palindrome</h2>");
+    document.write("<div class='output'>" + isPalindrome("madam") + "</div>");
+
+    // 11. Title Case
+    function titleCase(str) {
+      var words = str.split(" ");
+      for (var i=0; i<words.length; i++) {
+        words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+      }
+      return words.join(" ");
+    }
+    document.write("<h2>11. Title Case</h2>");
+    document.write("<div class='output'>" + titleCase("the quick brown fox") + "</div>");
+
+    // 12. Longest word
+    function longestWord(str) {
+      var words = str.split(" ");
+      var longest = "";
+      for (var i=0; i<words.length; i++) {
+        if (words[i].length > longest.length) {
+          longest = words[i];
+        }
+      }
+      return longest;
+    }
+    document.write("<h2>12. Longest Word</h2>");
+    document.write("<div class='output'>" + longestWord("Web Development Tutorial") + "</div>");
+
+    // 13. Letter occurrences
+    function countLetter(str, letter) {
+      var count = 0;
+      for (var i=0; i<str.length; i++) {
+        if (str[i].toLowerCase() === letter.toLowerCase()) {
+          count++;
+        }
+      }
+      return count;
+    }
+    document.write("<h2>13. Letter Count</h2>");
+    document.write("<div class='output'>" + countLetter("JSResourceS.com", "o") + "</div>");
+
+    // 14. Circle properties
+    function calcCircumference(r) {
+      return 2 * Math.PI * r;
+    }
+    function calcArea(r) {
+      return Math.PI * r * r;
+    }
+    document.write("<h2>14. Circle</h2>");
+    document.write("<div class='output'>Circumference: " + calcCircumference(5).toFixed(2) + "<br>");
+    document.write("Area: " + calcArea(5).toFixed(2) + "</div>");
+  </script>
+</body>
+</html>

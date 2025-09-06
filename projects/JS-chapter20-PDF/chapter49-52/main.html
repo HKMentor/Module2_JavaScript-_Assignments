@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment 49-52</title>
+</head>
+<body>
+  <h2>1. Signup Form</h2>
+  <form onsubmit="signup(event)">
+    Name: <input type="text" id="sname"><br>
+    Email: <input type="email" id="semail"><br>
+    Password: <input type="password" id="spass"><br>
+    <button type="submit">Signup</button>
+  </form>
+  <p id="signupData"></p>
+  <hr>
+
+  <h2>2. Read More Example</h2>
+  <p id="shortText">
+    This is short detail... 
+    <button onclick="readMore()">Read More</button>
+  </p>
+  <p id="fullText" style="display:none;">
+    This is the full detail of the item. It contains all the information that user wants to see.
+  </p>
+  <hr>
+
+  <h2>3. Student Data Table</h2>
+  <form onsubmit="addStudent(event)">
+    Name: <input type="text" id="stname">
+    Age: <input type="number" id="stage">
+    Class: <input type="text" id="stclass">
+    <button type="submit">Add Student</button>
+  </form>
+
+  <table border="1" cellpadding="5" id="studentTable">
+    <tr>
+      <th>Name</th><th>Age</th><th>Class</th><th>Actions</th>
+    </tr>
+  </table>
+
+  <div id="editForm" style="display:none; margin-top:10px;">
+    <h3>Edit Student</h3>
+    Name: <input type="text" id="editName">
+    Age: <input type="number" id="editAge">
+    Class: <input type="text" id="editClass">
+    <button onclick="updateStudent()">Update</button>
+  </div>
+
+<script>
+  // -------- 1. Signup Form --------
+  function signup(e){
+    e.preventDefault();
+    var name = document.getElementById("sname").value;
+    var email = document.getElementById("semail").value;
+    var pass = document.getElementById("spass").value;
+    document.getElementById("signupData").innerText = 
+      "Name: " + name + " | Email: " + email + " | Password: " + pass;
+  }
+
+  // -------- 2. Read More --------
+  function readMore(){
+    document.getElementById("fullText").style.display = "block";
+    document.getElementById("shortText").style.display = "none";
+  }
+
+  // -------- 3. Student Table --------
+  var editIndex = null;
+
+  function addStudent(e){
+    e.preventDefault();
+    var name = document.getElementById("stname").value;
+    var age = document.getElementById("stage").value;
+    var clas = document.getElementById("stclass").value;
+
+    var table = document.getElementById("studentTable");
+    var row = table.insertRow();
+    row.insertCell(0).innerText = name;
+    row.insertCell(1).innerText = age;
+    row.insertCell(2).innerText = clas;
+
+    var actions = row.insertCell(3);
+    actions.innerHTML = 
+      "<button onclick='editStudent(this)'>Edit</button> " +
+      "<button onclick='deleteStudent(this)'>Delete</button>";
+  }
+
+  function deleteStudent(btn){
+    var row = btn.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+  }
+
+  function editStudent(btn){
+    var row = btn.parentNode.parentNode;
+    editIndex = row.rowIndex;
+
+    document.getElementById("editName").value = row.cells[0].innerText;
+    document.getElementById("editAge").value = row.cells[1].innerText;
+    document.getElementById("editClass").value = row.cells[2].innerText;
+
+    document.getElementById("editForm").style.display = "block";
+  }
+
+  function updateStudent(){
+    var table = document.getElementById("studentTable");
+    table.rows[editIndex].cells[0].innerText = document.getElementById("editName").value;
+    table.rows[editIndex].cells[1].innerText = document.getElementById("editAge").value;
+    table.rows[editIndex].cells[2].innerText = document.getElementById("editClass").value;
+
+    document.getElementById("editForm").style.display = "none";
+  }
+</script>
+</body>
+</html>

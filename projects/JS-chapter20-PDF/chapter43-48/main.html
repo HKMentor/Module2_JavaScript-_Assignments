@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment #43-48</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    table, th, td { border: 1px solid black; border-collapse: collapse; padding: 8px; }
+    button { margin: 5px; padding: 5px 10px; }
+  </style>
+</head>
+<body>
+
+  <!-- Q1 -->
+  <h3>Q1: Alert on Link Click</h3>
+  <a href="#" onclick="alert('Link clicked!')">Click Me</a>
+  <hr>
+
+  <!-- Q2 -->
+  <h3>Q2: Mobile Images with Alert</h3>
+  <img src="https://via.placeholder.com/100" onclick="alert('You clicked on Mobile 1')" alt="Mobile1">
+  <img src="https://via.placeholder.com/100" onclick="alert('You clicked on Mobile 2')" alt="Mobile2">
+  <hr>
+
+  <!-- Q3 -->
+  <h3>Q3: Student Records with Delete Button</h3>
+  <table id="studentTable">
+    <tr><th>Name</th><th>Action</th></tr>
+    <tr><td>Ali</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+    <tr><td>Ayesha</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+    <tr><td>Ahmed</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+    <tr><td>Hooria</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+    <tr><td>Fatima</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+    <tr><td>Saad</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+    <tr><td>Kashif</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+    <tr><td>Areeba</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+    <tr><td>Umer</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+    <tr><td>Mark</td><td><button onclick="deleteRow(this)">Delete</button></td></tr>
+  </table>
+  <hr>
+
+  <!-- Q4 -->
+  <h3>Q4: Image Change on Mouse Events</h3>
+  <img id="hoverImg" src="https://via.placeholder.com/150/0000FF" 
+       onmouseover="this.src='https://via.placeholder.com/150/FF0000'" 
+       onmouseout="this.src='https://via.placeholder.com/150/0000FF'" alt="Hover Image">
+  <hr>
+
+  <!-- Q5 -->
+  <h3>Q5: Counter</h3>
+  <p id="counterValue">0</p>
+  <button onclick="increase()">Increase</button>
+  <button onclick="decrease()">Dec

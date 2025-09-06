@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment (Math Methods)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #444;
+      margin-top: 20px;
+    }
+    .output {
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 12px;
+      margin: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 16px;
+    }
+    .output span {
+      font-weight: bold;
+      color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Assignment (Math Methods)</h1>
+
+  <script>
+    // 1. Positive Integer
+    var num = +prompt("Enter a positive integer:");
+    document.write("<h2>1. Positive Integer</h2>");
+    document.write("<div class='output'><span>Number:</span> " + num + 
+      "<br><span>Round off:</span> " + Math.round(num) + 
+      "<br><span>Floor:</span> " + Math.floor(num) + 
+      "<br><span>Ceil:</span> " + Math.ceil(num) + "</div>");
+
+    // 2. Negative Floating Number
+    var num  = +prompt("Enter a negative floating point number:");
+    document.write("<h2>2. Negative Floating</h2>");
+    document.write("<div class='output'><span>Number:</span> " + num + 
+      "<br><span>Round off:</span> " + Math.round(num) + 
+      "<br><span>Floor:</span> " + Math.floor(num) + 
+      "<br><span>Ceil:</span> " + Math.ceil(num) + "</div>");
+
+    // 3. Absolute Value
+    var num = +prompt("Enter a number:");
+    document.write("<h2>3. Absolute Value</h2>");
+    document.write("<div class='output'>The absolute value of <span>" + num + "</span> is <span>" + Math.abs(num) + "</span></div>");
+
+    // 4. Dice Simulation
+    var dice = Math.floor(Math.random() * 6 ) + 1;
+    document.write("<h2>4. Dice Simulation</h2>");
+    document.write("<div class='output'>🎲 Random dice value: <span>" + dice + "</span></div>");
+
+    // 5. Coin Toss
+    var toss = Math.floor(Math.random() * 2);
+    document.write("<h2>5. Coin Toss</h2>");
+    if (toss === 0){
+        document.write("<div class='output'>🪙 Heads</div>");
+    } else{
+        document.write("<div class='output'>🪙 Tails</div>");
+    }
+
+    // 6. Random 1-100
+    var num = Math.floor(Math.random() * 100) + 1;
+    document.write("<h2>6. Random Number</h2>");
+    document.write("<div class='output'>Random number between 1 to 100: <span>" + num + "</span></div>");
+
+    // 7. Weight Input
+    var weight = prompt("Enter your weight in kilograms:");
+    var ParsedWeight = parseFloat(weight);
+    document.write("<h2>7. Weight</h2>");
+    document.write("<div class='output'>The weight of user is <span>" + ParsedWeight + "</span> kilograms</div>");
+
+    // 8. Secret Number Game
+    let secret = Math.floor(Math.random() * 10) + 1;
+    let guess = +prompt("Guess the secret number (1 to 10):");
+    document.write("<h2>8. Secret Number</h2>");
+    if (guess === secret) {
+      document.write("<div class='output'>🎉 Congratulations! You guessed the secret number.</div>");
+    } else {
+      document.write("<div class='output'>❌ Try again! The secret number was <span>" + secret + "</span></div>");
+    }
+  </script>
+</body>
+</html>

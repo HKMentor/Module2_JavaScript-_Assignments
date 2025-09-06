@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment 38-44</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .result-box {
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .result-box span {
+      font-weight: bold;
+      color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <h2>Assignment #38-44 (JavaScript)</h2>
+
+  <div id="output"></div>
+
+  <script>
+    var out = document.getElementById("output");
+
+    function printResult(text) {
+      out.innerHTML += `<div class="result-box">${text}</div>`;
+    }
+
+    // 1. power function
+    function power(a,b){
+      var result = 1;
+      for(var i=0; i<b; i++){ result *= a; }
+      return result;
+    }
+    printResult("<span>Power(2,3)</span> = " + power(2,3));
+
+    // 2. leap year
+    function leapYear(year){
+      if((year%4===0 && year%100!==0) || year%400===0){
+        return year + " is Leap Year";
+      } else {
+        return year + " is Not Leap Year";
+      }
+    }
+    printResult(leapYear(2024));
+
+    // 3. area of triangle
+    function areaTriangle(a,b,c){
+      var S = (a+b+c)/2;
+      var area = Math.sqrt(S*(S-a)*(S-b)*(S-c));
+      return area;
+    }
+    printResult("Area of triangle = " + areaTriangle(3,4,5));
+
+    // 4. marks avg + percentage
+    function average(m1,m2,m3){ return (m1+m2+m3)/3; }
+    function percentage(m1,m2,m3){ return ((m1+m2+m3)/300)*100; }
+    function mainFunction(m1,m2,m3){
+      printResult("Average: " + average(m1,m2,m3));
+      printResult("Percentage: " + percentage(m1,m2,m3) + "%");
+    }
+    mainFunction(80,70,90);
+
+    // 5. custom indexOf
+    function myIndexOf(str, char){
+      for(var i=0;i<str.length;i++){
+        if(str[i]===char){ return i; }
+      }
+      return -1;
+    }
+    printResult("Index of 'e' in 'Hello' = " + myIndexOf("Hello","e"));
+
+    // 6. remove vowels
+    function removeVowels(sentence){
+      return sentence.replace(/[aeiou]/gi,"");
+    }
+    printResult("Without vowels: " + removeVowels("Hello World"));
+
+    // 7. two vowels in succession
+    function findVowels(text){
+      var count=0;
+      for(var i=0;i<text.length-1;i++){
+        var pair = text[i]+text[i+1];
+        switch(pair.toLowerCase()){
+          case "aa": case "ae": case "ai": case "ao": case "au":
+          case "ea": case "ee": case "ei": case "eo": case "eu":
+          case "ia": case "ie": case "ii": case "io": case "iu":
+          case "oa": case "oe": case "oi": case "oo": case "ou":
+          case "ua": case "ue": case "ui": case "uo": case "uu":
+            count++;
+            break;
+        }
+      }
+      return count;
+    }
+    printResult("Vowel pairs: " + findVowels("Pleases read this application and give me gratuity"));
+
+    // 8. distance conversions
+    function meters(km){ return km*1000; }
+    function feet(km){ return km*3280.84; }
+    function inches(km){ return km*39370.1; }
+    function cm(km){ return km*100000; }
+    var km=5;
+    printResult(km+" km = "+meters(km)+" m, "+feet(km)+" ft, "+inches(km)+" in, "+cm(km)+" cm");
+
+    // 9. overtime pay
+    function overtime(hours){
+      if(hours>40){
+        return "Overtime Pay: Rs. " + (hours-40)*12;
+      } else {
+        return "No Overtime Pay";
+      }
+    }
+    printResult(overtime(45));
+
+    // 10. currency notes
+    function cashier(amount){
+      var hundreds = Math.floor(amount/100);
+      var fifty = Math.floor((amount%100)/50);
+      var ten = Math.floor(((amount%100)%50)/10);
+      return "100s: " + hundreds + ", 50s: " + fifty + ", 10s: " + ten;
+    }
+    printResult(cashier(370));
+  </script>
+</body>
+</html>

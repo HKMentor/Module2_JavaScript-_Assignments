@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arrays Assignment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      padding: 20px;
+    }
+    h2 {
+      background: #4cafef;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    .output {
+      background: white;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+// 1 & 2
+document.write("<h2>1-2. Empty Arrays</h2>");
+var studentNames = [];
+var studentNames2 = new Array();
+document.write("<div class='output'>Literal: " + studentNames + "<br>Object: " + studentNames2 + "</div>");
+
+// 3
+document.write("<h2>3. Strings Array</h2>");
+var stringsArray = ["Apple", "Banana", "Mango"];
+document.write("<div class='output'>" + stringsArray.join(", ") + "</div>");
+
+// 4
+document.write("<h2>4. Numbers Array</h2>");
+var numbersArray = [10, 20, 30, 40];
+document.write("<div class='output'>" + numbersArray.join(", ") + "</div>");
+
+// 5
+document.write("<h2>5. Boolean Array</h2>");
+var booleanArray = [true, false, true, false];
+document.write("<div class='output'>" + booleanArray.join(", ") + "</div>");
+
+// 6
+document.write("<h2>6. Mixed Array</h2>");
+var mixedArray = ["Hooria", 19, true, "Student", 99];
+document.write("<div class='output'>" + mixedArray.join(", ") + "</div>");
+
+// 7
+document.write("<h2>7. Qualifications</h2>");
+var qualifications = ["SSC", "HSC", "BCS", "BS", "BCOM", "MS", "M. Phil.", "PhD"];
+document.write("<div class='output'>");
+for (var i = 0; i < qualifications.length; i++) {
+  document.write((i + 1) + ") " + qualifications[i] + "<br>");
+}
+document.write("</div>");
+
+// 8
+document.write("<h2>8. Students Scores</h2>");
+let students = ["Michael", "John", "Tony"];
+let scores = [320, 230, 480];
+let totalMarks = 500;
+document.write("<div class='output'>");
+for (let i = 0; i < students.length; i++) {
+  let percentage = (scores[i] / totalMarks) * 100;
+  document.write("Score of " + students[i] + " is " + scores[i] + 
+                 ". Percentage: " + percentage.toFixed(2) + "%<br>");
+}
+document.write("</div>");
+
+// 9
+document.write("<h2>9. Colors Array (Dynamic)</h2>");
+let colors = ["Red", "Green", "Blue"];
+document.write("<div class='output'>Initial: " + colors.join(", ") + "</div>");
+
+// (for testing: static inputs instead of prompt)
+colors.unshift("Purple");
+colors.push("Yellow");
+colors.splice(2,0,"Orange");
+colors.shift();
+colors.pop();
+document.write("<div class='output'>Updated: " + colors.join(", ") + "</div>");
+
+// 10
+document.write("<h2>10. Sorted Scores</h2>");
+let score = [320, 230, 480, 120];
+document.write("<div class='output'>Original: " + score.join(", ") + "<br>");
+score.sort((a, b) => a - b);
+document.write("Sorted: " + score.join(", ") + "</div>");
+
+// 11
+document.write("<h2>11. Selected Cities</h2>");
+var cities = ["Karachi", "Lahore", "Islamabad", "Quetta", "Peshawar"];
+var selectedCities = cities.slice(2, 5);
+document.write("<div class='output'>Cities: " + cities.join(", ") + "<br>");
+document.write("Selected: " + selectedCities.join(", ") + "</div>");
+
+// 12
+document.write("<h2>12. Join Method</h2>");
+var arr = ["This", " is", " my", " cat"];
+var singleString = arr.join("");
+document.write("<div class='output'>Array: " + arr + "<br>String: " + singleString + "</div>");
+
+// 13 FIFO
+document.write("<h2>13. FIFO (Queue)</h2>");
+var queue = ["Keyboard","Mouse","Printer","Monitor"];
+document.write("<div class='output'>Devices: " + queue.join(", ") + "<br><br>");
+while (queue.length > 0) {
+  document.write("Out: " + queue.shift() + "<br>");
+}
+document.write("</div>");
+
+// 14 LIFO
+document.write("<h2>14. LIFO (Stack)</h2>");
+var stack = ["Keyboard","Mouse","Printer","Monitor"];
+document.write("<div class='output'>Devices: " + stack.join(", ") + "<br><br>");
+while (stack.length > 0) {
+  document.write("Out: " + stack.pop() + "<br>");
+}
+document.write("</div>");
+</script>
+
+</body>
+</html>

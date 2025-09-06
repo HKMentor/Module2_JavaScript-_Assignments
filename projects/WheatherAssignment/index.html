@@ -1,13 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Season Selector</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      transition: background 0.8s ease-in-out;
+    }
+
+    .card {
+      width: 320px;
+      padding: 20px;
+      background: white;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 1s ease-in-out;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .card img:hover {
+      transform: scale(1.05);
+    }
+
+    .card h2 {
+      margin-top: 15px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #4cafef;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #0077cc;
+    }
+
+    /* Fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 500px) {
+      .card {
+        width: 90%;
+        padding: 16px;
+      }
+      .card img {
+        height: 160px;
+      }
+      .card h2 {
+        font-size: 1.3rem;
+      }
+      .card p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    
-    <script src="./main.js"></script>
+
+<script>
+  function showSeason() {
+    let weather = prompt("Please select season:\n winter,\n autumn,\n summer,\n spring");
+    if (!weather) return; // agar cancel kare toh kuch na ho
+    weather = weather.toLowerCase();
+
+    let card = "";
+
+    if (weather === "winter") {
+      document.body.style.background = "linear-gradient(135deg, #a2d2ff, #e0f7fa)";
+      card = `
+        <div class="card">
+          <img src="./image/winterGif.gif" alt="Winter">
+          <h2>❄️ Winter Season</h2>
+          <p>Stay cozy! Thandi thandi hawaen hain.</p>
+          <button class="btn" onclick="showSeason()">Choose Again</button>
+        </div>`;
+    }
+    else if (weather === "autumn") {
+      document.body.style.background = "linear-gradient(135deg, #ffcc80, #ffe0b2)";
+      card = `
+        <div class="card">
+          <img src="./image/autumngif.gif" alt="Autumn">
+          <h2>🍁 Autumn Season</h2>
+          <p>Pattay gir rahe hain, mausam suhana hai.</p>
+          <button class="btn" onclick="showSeason()">Choose Again</button>
+        </div>`;
+    }
+    else if (weather === "summer") {
+      document.body.style.background = "linear-gradient(135deg, #fff176, #ffecb3)";
+      card = `
+        <div class="card">
+          <img src="./image/summer.jpeg" alt="Summer">
+          <h2>☀️ Summer Season</h2>
+          <p>Garmi ka mausam! Thanda pani zaroor piyen.</p>
+          <button class="btn" onclick="showSeason()">Choose Again</button>
+        </div>`;
+    }
+    else if (weather === "spring") {
+      document.body.style.background = "linear-gradient(135deg, #a5d6a7, #e8f5e9)";
+      card = `
+        <div class="card">
+          <img src="./image/springGif.gif" alt="Spring">
+          <h2>🌸 Spring Season</h2>
+          <p>Phool khil rahe hain! Har taraf rang hi rang.</p>
+          <button class="btn" onclick="showSeason()">Choose Again</button>
+        </div>`;
+    }
+    else {
+      document.body.style.background = "linear-gradient(135deg, #ffcdd2, #ef9a9a)";
+      card = `<div class="card"><h2>❌ Invalid Season!</h2>
+              <p>Please type: winter, autumn, summer, or spring.</p>
+              <button class="btn" onclick="showSeason()">Try Again</button></div>`;
+    }
+
+    document.body.innerHTML = card;
+  }
+
+  showSeason();
+</script>
+
 </body>
 </html>

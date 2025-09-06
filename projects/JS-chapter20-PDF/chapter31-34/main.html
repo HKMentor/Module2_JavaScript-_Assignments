@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Date Methods Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    h2 {
+      color: darkblue;
+      margin-top: 20px;
+    }
+    .output {
+      background: #eef3ff;
+      padding: 8px;
+      margin: 8px 0;
+      border-left: 4px solid darkblue;
+    }
+  </style>
+</head>
+<body>
+  <h1>Date Methods – JavaScript</h1>
+
+  <script>
+    // 1. Current Date & Time
+  var  now = new Date()
+  document.write("<h2> 1. Current DAte & Time </h2>")
+  document.write("<div class='output'>" + now + "</div>")
+    // 2. Current Month in words
+    var monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    document.write("<h2>2. Current Month</h2>");
+    document.write("<div class='output'>" + monthNames[now.getMonth()] + "</div>");
+
+    // 3. First 3 letters of day
+    var days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    document.write("<h2>3. Current Day</h2>");
+    document.write("<div class='output'>" + days[now.getDay()] + "</div>");
+
+    // 4. Fun Day
+    document.write("<h2>4. Fun Day</h2>");
+    if (now.getDay() === 0 || now.getDay() === 6) {
+      document.write("<div class='output'>It's Fun day 🎉</div>");
+    } else {
+      document.write("<div class='output'>Normal working day</div>");
+    }
+
+    // 5. First or Last days of month
+    document.write("<h2>5. Days of Month</h2>");
+    if (now.getDate() < 16) {
+      document.write("<div class='output'>First fifteen days of the month</div>");
+    } else {
+      document.write("<div class='output'>Last days of the month</div>");
+    }
+
+    // 6. Minutes since Jan 1, 1970
+    var msSince1970 = now.getTime();
+    var minutes = msSince1970 / (1000 * 60);
+    document.write("<h2>6. Minutes since Jan 1, 1970</h2>");
+    document.write("<div class='output'>" + Math.floor(minutes) + " minutes</div>");
+
+    // 7. AM or PM
+    document.write("<h2>7. AM or PM</h2>");
+    if (now.getHours() < 12) {
+      document.write("<div class='output'>It's AM</div>");
+    } else {
+      document.write("<div class='output'>It's PM</div>");
+    }
+
+    // 8. Last day of 2020
+    var laterDate = new Date(2020, 11, 31);
+    document.write("<h2>8. Last Day of 2020</h2>");
+    document.write("<div class='output'>" + laterDate + "</div>");
+
+    // 9. Days since Ramadan 2015
+    var ramadan = new Date("June 18, 2015");
+    var today = new Date();
+    var diffDays = Math.floor((today - ramadan) / (1000 * 60 * 60 * 24));
+    document.write("<h2>9. Days since 1st Ramadan 2015</h2>");
+    document.write("<div class='output'>" + diffDays + " days</div>");
+
+    // 10. Seconds since beginning of 2015
+    var start2015 = new Date("Jan 1, 2015");
+    var secondsElapsed = Math.floor((now - start2015) / 1000);
+    document.write("<h2>10. Seconds since Jan 1, 2015</h2>");
+    document.write("<div class='output'>" + secondsElapsed + " seconds</div>");
+
+    // 11. Reset an hour ahead
+    var hourAhead = new Date();
+    hourAhead.setHours(hourAhead.getHours() + 1);
+    document.write("<h2>11. One Hour Ahead</h2>");
+    document.write("<div class='output'>" + hourAhead + "</div>");
+
+    // 12. 100 years back
+    var hundredBack = new Date();
+    hundredBack.setFullYear(hundredBack.getFullYear() - 100);
+    document.write("<h2>12. 100 Years Back</h2>");
+    document.write("<div class='output'>" + hundredBack + "</div>");
+
+    // 13. Age and Birth Year
+    var age = +prompt("Enter your age:");
+    var birthYear = now.getFullYear() - age;
+    document.write("<h2>13. Birth Year</h2>");
+    document.write("<div class='output'>Your age is " + age + "<br>Birth year: " + birthYear + "</div>");
+
+    // 14. K-Electric Bill
+    var customerName = "Customer XYZ";
+    var currentMonth = monthNames[now.getMonth()];
+    var units = 410;
+    var chargesPerUnit = 16;
+    var netAmount = (units * chargesPerUnit).toFixed(2);
+    var lateSurcharge = 350;
+    var grossAmount = (parseFloat(netAmount) + lateSurcharge).toFixed(2);
+
+    document.write("<h2>14. K-Electric Bill</h2>");
+    document.write("<div class='output'>Customer Name: " + customerName + "<br>");
+    document.write("Month: " + currentMonth + "<br>");
+    document.write("Units: " + units + "<br>");
+    document.write("Charges per Unit: " + chargesPerUnit + "<br>");
+    document.write("Net Amount: " + netAmount + "<br>");
+    document.write("Late Surcharge: " + lateSurcharge + "<br>");
+    document.write("Gross Amount: " + grossAmount + "</div>");
+  </script>
+</body>
+</html>

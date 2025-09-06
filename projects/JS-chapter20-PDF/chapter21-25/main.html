@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment (String Methods)</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #444;
+      margin-top: 25px;
+    }
+    .output {
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      padding: 12px;
+      margin: 10px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 16px;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #0066cc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Assignment (String Methods)</h1>
+
+  <script>
+    // 1. Full Name
+    var firstName = prompt("Enter your First Name:");
+    var lastName = prompt("Enter your Last Name:");
+    var fullName = firstName + " " + lastName;
+    document.write("<h2>1. Greeting</h2>");
+    document.write("<div class='output'>Welcome <span class='highlight'>" + fullName + "</span></div>");
+
+    // 2. Mobile Model
+    var mobile = prompt("Enter your favorite mobile phone model:");
+    document.write("<h2>2. Mobile Model</h2>");
+    document.write("<div class='output'>My favorite phone is: <span class='highlight'>" + mobile + 
+      "</span><br>Length of string: <span class='highlight'>" + mobile.length + "</span></div>");
+
+    // 3. Index of n
+    var word = "Pakistani";
+    document.write("<h2>3. Index of 'n'</h2>");
+    document.write("<div class='output'>Index of 'n' in " + word + ": <span class='highlight'>" + word.indexOf("n") + "</span></div>");
+
+    // 4. Last index of l
+    var word2 = "Hello World";
+    document.write("<h2>4. Last Index of 'l'</h2>");
+    document.write("<div class='output'>Last index of 'l' in " + word2 + ": <span class='highlight'>" + word2.lastIndexOf("l") + "</span></div>");
+
+    // 5. Character at 3rd index
+    document.write("<h2>5. Character at 3rd Index</h2>");
+    document.write("<div class='output'>Character at 3rd index in 'Pakistani': <span class='highlight'>" + word.charAt(3) + "</span></div>");
+
+    // 6. Using concat()
+    var fullName2 = firstName.concat(" ", lastName);
+    document.write("<h2>6. Concat Method</h2>");
+    document.write("<div class='output'>Using concat(): Hello <span class='highlight'>" + fullName2 + "</span></div>");
+
+    // 7. Replace word
+    var city = "Hyderabad";
+    var newCity = city.replace("Hyder", "Islam");
+    document.write("<h2>7. Replace</h2>");
+    document.write("<div class='output'>City: " + city + "<br>After Replacement: <span class='highlight'>" + newCity + "</span></div>");
+
+    // 8. Replace all "and"
+    var message = "Ali and Sami are best friends. They play cricket and football together.";
+    var replace = message.replace(/and/g, "&");
+    document.write("<h2>8. Replace All 'and'</h2>");
+    document.write("<div class='output'>" + replace + "</div>");
+
+    // 9. String to Number
+    var str = "472";
+    var num = Number(str);
+    document.write("<h2>9. String to Number</h2>");
+    document.write("<div class='output'>Value: " + str + " (Type: " + typeof str + ")<br>Value: " + num + " (Type: " + typeof num + ")</div>");
+
+    // 10. Upper Case
+    var input = prompt("Enter text:");
+    document.write("<h2>10. Upper Case</h2>");
+    document.write("<div class='output'>User Input: " + input + "<br>Upper Case: <span class='highlight'>" + input.toUpperCase() + "</span></div>");
+
+    // 11. Title Case
+    var input2 = prompt("Enter text:");
+    var titleCase = input2[0].toUpperCase() + input2.slice(1).toLowerCase();
+    document.write("<h2>11. Title Case</h2>");
+    document.write("<div class='output'>User Input: " + input2 + "<br>Title Case: <span class='highlight'>" + titleCase + "</span></div>");
+
+    // 12. Remove dot
+    var num2 = 35.36;
+    var str2 = num2.toString().replace(".", "");
+    document.write("<h2>12. Remove Dot</h2>");
+    document.write("<div class='output'>Number: " + num2 + "<br>Result: <span class='highlight'>" + str2 + "</span></div>");
+
+    // 13. Username validation
+    var username = prompt("Enter Username:");
+    for (let i = 0; i < username.length; i++) {
+        let charCode = username.charCodeAt(i);
+        if (charCode === 33 || charCode === 44 || charCode === 46 || charCode === 64) {
+            alert("Please enter a valid username without special symbols [@ . , !]");
+            break;
+        }
+    }
+    document.write("<h2>13. Username Validation</h2>");
+    document.write("<div class='output'>Entered Username: " + username + "</div>");
+
+    // 14. Bakery search
+    var A = ["cake", "apple pie", "cookie", "chips", "patties"];
+    var search = prompt("Welcome to ABC Bakery. What do you want to order?").toLowerCase();
+    document.write("<h2>14. Bakery Search</h2>");
+    if (A.indexOf(search) !== -1) {
+        document.write("<div class='output'><span class='highlight'>" + search + "</span> is available at index " + A.indexOf(search) + " in our bakery.</div>");
+    } else {
+        document.write("<div class='output'>We are sorry. <span class='highlight'>" + search + "</span> is not available in our bakery.</div>");
+    }
+
+    // 15. Password validation
+    var password = prompt("Enter your password:");
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+    } else if (!isNaN(password[0])) {
+        alert("Password should not start with a number.");
+    } else if (!(/[A-Za-z]/.test(password) && /[0-9]/.test(password))) {
+        alert("Password must contain both alphabets and numbers.");
+    } else {
+        alert("Valid Password!");
+    }
+    document.write("<h2>15. Password Validation</h2>");
+    document.write("<div class='output'>Entered Password: " + password + "</div>");
+
+    // 16. Split string
+    var university = "University of Karachi";
+    var arr = university.split("");
+    document.write("<h2>16. Split String</h2>");
+    document.write("<div class='output'>");
+    for (let i = 0; i < arr.length; i++) {
+        document.write(arr[i] + "<br>");
+    }
+    document.write("</div>");
+
+    // 17. Last Character
+    var input3 = prompt("Enter text:");
+    document.write("<h2>17. Last Character</h2>");
+    document.write("<div class='output'>User Input: " + input3 + "<br>Last Character: <span class='highlight'>" + input3.charAt(input3.length - 1) + "</span></div>");
+
+    // 18. Count 'the'
+    var text = "The quick brown fox jumps over the lazy dog";
+    var lower = text.toLowerCase();
+    var count = (lower.match(/the/g) || []).length;
+    document.write("<h2>18. Count 'the'</h2>");
+    document.write("<div class='output'>Text: " + text + "<br>There are <span class='highlight'>" + count + "</span> occurrence(s) of word 'the'</div>");
+  </script>
+</body>
+</html>
+</html>

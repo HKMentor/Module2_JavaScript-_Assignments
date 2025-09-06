@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Arrays & Loops Assignment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      padding: 20px;
+    }
+    h2 {
+      background: #4cafef;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    .output {
+      background: white;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+// 1. Empty multidimensional array
+document.write("<h2>1. Empty Multidimensional Array</h2>");
+var arr = [[], [], []];
+document.write("<div class='output'>" + JSON.stringify(arr) + "</div>");
+
+// 2. Matrix
+document.write("<h2>2. Matrix</h2>");
+var matrix = [
+  [0, 1, 2, 3],
+  [1, 0, 1, 2],
+  [2, 1, 0, 1]
+];
+document.write("<div class='output'>");
+for (let i = 0; i < matrix.length; i++) {
+  document.write(matrix[i].join(" ") + "<br>");
+}
+document.write("</div>");
+
+// 3. Counting
+document.write("<h2>3. Counting (1 to 10)</h2>");
+document.write("<div class='output'>");
+for (let i = 1; i <= 10; i++) {
+  document.write(i + " ");
+}
+document.write("</div>");
+
+// 4. Multiplication Table
+document.write("<h2>4. Multiplication Table</h2>");
+var num = 5; 
+var length = 10;
+document.write("<div class='output'>Table of " + num + " (Length " + length + ")<br>");
+for (let i = 1; i <= length; i++) {
+  document.write(num + " x " + i + " = " + (num * i) + "<br>");
+}
+document.write("</div>");
+
+// 5. Fruits Array
+document.write("<h2>5. Fruits Array</h2>");
+var fruits = ["apple", "banana", "mango", "orange", "strawberry"];
+document.write("<div class='output'>");
+for (let i = 0; i < fruits.length; i++) {
+  document.write(fruits[i] + "<br>");
+}
+document.write("<br>");
+for (let i = 0; i < fruits.length; i++) {
+  document.write("Element at index " + i + " is " + fruits[i] + "<br>");
+}
+document.write("</div>");
+
+// 6. Series
+document.write("<h2>6. Series</h2>");
+document.write("<div class='output'><b>Counting:</b><br>");
+for (let i = 1; i <= 15; i++) {
+  document.write(i + ", ");
+}
+document.write("<br><br><b>Reverse Counting:</b><br>");
+for (let i = 10; i >= 1; i--) {
+  document.write(i + ", ");
+}
+document.write("<br><br><b>Even:</b><br>");
+for (let i = 0; i <= 20; i += 2) {
+  document.write(i + ", ");
+}
+document.write("<br><br><b>Odd:</b><br>");
+for (let i = 1; i <= 19; i += 2) {
+  document.write(i + ", ");
+}
+document.write("<br><br><b>Series (k):</b><br>");
+for (let i = 2; i <= 20; i += 2) {
+  document.write(i + "k, ");
+}
+document.write("</div>");
+
+// 7. Search in bakery
+document.write("<h2>7. Bakery Search</h2>");
+var A = ["cake", "apple pie", "cookie", "chips", "patties"];
+var search = "cookie"; 
+document.write("<div class='output'>");
+if (A.indexOf(search.toLowerCase()) !== -1) {
+  document.write(search + " is available at index " + A.indexOf(search) + " in our bakery.");
+} else {
+  document.write("We are sorry. " + search + " is not available.");
+}
+document.write("</div>");
+
+// 8. Largest Number
+document.write("<h2>8. Largest Number</h2>");
+var B = [24, 53, 78, 91, 12];
+var largest = B[0];
+for (let i = 1; i < B.length; i++) {
+  if (B[i] > largest) {
+    largest = B[i];
+  }
+}
+document.write("<div class='output'>Array items: " + B.join(", ") + "<br>");
+document.write("The largest number is " + largest + "</div>");
+</script>
+
+</body>
+</html>
