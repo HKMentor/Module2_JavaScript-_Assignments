@@ -3,104 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beautiful Slider</title>
-  <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome for icons -->
+  <title>Islamic History Gallery</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="./style.css">
+
 </head>
 <body>
-
-  <!-- Header / Navbar -->
   <header>
-    <div class="navbar">
-      <div class="logo">MyGallery</div>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-  </header>
+  <div class="navbar">
+    <div class="logo">IslamicHistory</div>
+   
+  </div>
+</header>
 
-  <!-- Hero Section -->
+
   <section class="hero">
-    <h1>Welcome to My Image Gallery</h1>
-    <p>Enjoy the modern image slider with thumbnails & navigation</p>
+    <h1>📜 Islamic History Gallery</h1>
+    <p>Discover sacred monuments that shaped Islamic heritage.</p>
   </section>
 
-  <!-- Main Slider -->
-  <div class="slider">
-    <img src="https://picsum.photos/id/1015/900/500" class="active" />
-    <img src="https://picsum.photos/id/1016/900/500" />
-    <img src="https://picsum.photos/id/1018/900/500" />
-    <img src="https://picsum.photos/id/1020/900/500" />
-
-    <!-- Arrows -->
-    <div class="left-arrow"><i class="fa-solid fa-chevron-left"></i></div>
-    <div class="right-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+  <div class="slider-container">
+    <div class="slider">
+      <div class="slide">
+  <img src="https://media.istockphoto.com/id/482206266/photo/kaaba-in-mecca.jpg?s=612x612&w=0&k=20&c=wwzNu3XMQpCRVdAcBbeerUGaew0Fk2nGPQkH98Wj474=" />
+  <div class="overlay-text">
+    <h3>Kaaba, Makkah</h3>
+    <p>The holiest site in Islam, visited by millions of Muslims during Hajj and Umrah. It is the qibla (direction of prayer) for Muslims worldwide.</p>
   </div>
+</div>
 
-  <!-- Thumbnails -->
-  <div class="thumbnails">
-    <img src="https://picsum.photos/id/1015/200/100" class="active-thumb" />
-    <img src="https://picsum.photos/id/1016/200/100" />
-    <img src="https://picsum.photos/id/1018/200/100" />
-    <img src="https://picsum.photos/id/1020/200/100" />
+<div class="slide">
+  <img src="https://zamzam.com/blog/wp-content/uploads/2021/08/shutterstock_1234244062.jpg" />
+  <div class="overlay-text">
+    <h3>Masjid an-Nabawi, Madinah</h3>
+    <p>Established by Prophet Muhammad ﷺ, it is the second holiest mosque in Islam. The Green Dome houses the Prophet’s resting place.</p>
   </div>
+</div>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 MyGallery. All Rights Reserved.</p>
-    <div class="social-icons">
-      <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-brands fa-twitter"></i></a>
+<div class="slide">
+  <img src="https://static.toiimg.com/photo/75202980.cms" />
+  <div class="overlay-text">
+    <h3>Dome of the Rock, Jerusalem</h3>
+    <p>Built in 691 AD, it marks the place where Prophet Muhammad ﷺ ascended to the heavens during Isra and Mi'raj.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <img src="https://cdn-imgix.headout.com/media/images/fd89223056e350ae524f6c6120198677-Bluemosqueistanbul.jpg?auto=format&w=1222.3999999999999&h=687.6&q=90&ar=16%3A9&crop=faces&fit=crop" />
+  <div class="overlay-text">
+    <h3>Blue Mosque, Istanbul</h3>
+    <p>An Ottoman-era architectural wonder built in the 17th century. Famous for its six minarets and stunning blue interior tiles.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhleSAqL_eCZSVI4rY5AfEmbTPRqDOC39MQKvy373Xr5xGqvu6mXG5anQTTIgDwCLF57yVCZqE21W6YGF2zzmyK9XE8j-KDpJMmJvyKHoCdDw4MdYbxX7n_f28CcTuNtsAEKWBT0W9wEN_s/?imgmax=800" />
+  <div class="overlay-text">
+    <h3>Great Mosque of Samarra, Iraq</h3>
+    <p>Built in the 9th century, it is famous for its unique spiral minaret and was once the largest mosque in the world.</p>
+  </div>
+</div>
+
+<div class="slide">
+  <img src="https://smarthistory.org/wp-content/uploads/2017/02/cordoba_desde_el_aire_cordoba_espancc83a-1.jpg" />
+  <div class="overlay-text">
+    <h3>Mosque of Córdoba, Spain</h3>
+    <p>A masterpiece of Islamic art and architecture. Originally a mosque, later converted into a cathedral, showcasing Islamic influence in Europe.</p>
+  </div>
+</div>
+
+
+      <div class="left-arrow"><i class="fa-solid fa-chevron-left"></i></div>
+      <div class="right-arrow"><i class="fa-solid fa-chevron-right"></i></div>
     </div>
+
+    <div class="thumbnails">
+      <div class="thumb-wrapper">
+        <img src="https://media.istockphoto.com/id/482206266/photo/kaaba-in-mecca.jpg?s=612x612&w=0&k=20&c=wwzNu3XMQpCRVdAcBbeerUGaew0Fk2nGPQkH98Wj474=" class="active-thumb" />
+        <div class="tooltip">Kaaba, Makkah</div>
+      </div>
+      <div class="thumb-wrapper">
+        <img src="https://zamzam.com/blog/wp-content/uploads/2021/08/shutterstock_1234244062.jpg" />
+        <div class="tooltip">Masjid an-Nabawi, Madinah</div>
+      </div>
+      <div class="thumb-wrapper">
+        <img src="https://static.toiimg.com/photo/75202980.cms" />
+        <div class="tooltip">Dome of the Rock, Jerusalem</div>
+      </div>
+      <div class="thumb-wrapper">
+        <img src="https://cdn-imgix.headout.com/media/images/fd89223056e350ae524f6c6120198677-Bluemosqueistanbul.jpg?auto=format&w=1222.3999999999999&h=687.6&q=90&ar=16%3A9&crop=faces&fit=crop" />
+        <div class="tooltip">Blue Mosque, Istanbul</div>
+      </div>
+      <div class="thumb-wrapper">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhleSAqL_eCZSVI4rY5AfEmbTPRqDOC39MQKvy373Xr5xGqvu6mXG5anQTTIgDwCLF57yVCZqE21W6YGF2zzmyK9XE8j-KDpJMmJvyKHoCdDw4MdYbxX7n_f28CcTuNtsAEKWBT0W9wEN_s/?imgmax=800" />
+        <div class="tooltip">Great Mosque of Samarra</div>
+      </div>
+      <div class="thumb-wrapper">
+        <img src="https://smarthistory.org/wp-content/uploads/2017/02/cordoba_desde_el_aire_cordoba_espancc83a-1.jpg" />
+        <div class="tooltip">Mosque of Córdoba, Spain</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 IslamicHistory Gallery. All Rights Reserved.</p>
   </footer>
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
+  const thumbs = document.querySelectorAll(".thumbnails img");
 
-  <!-- JavaScript -->
-  <script>
-    const slides = document.querySelectorAll(".slider img");
-    const thumbs = document.querySelectorAll(".thumbnails img");
-    const nextBtn = document.querySelector(".right-arrow");
-    const prevBtn = document.querySelector(".left-arrow");
-
-    let index = 0;
-
-    function showSlide(i) {
-      slides.forEach((img, idx) => {
-        img.style.display = idx === i ? "block" : "none";
-        thumbs[idx].classList.toggle("active-thumb", idx === i);
-      });
-      index = i;
-    }
-
-    // Next & Prev Button Events
-    nextBtn.addEventListener("click", () => {
-      index = (index + 1) % slides.length;
-      showSlide(index);
+  function showSlide(index) {
+    slides.forEach((s, i) => {
+      s.style.display = i === index ? "block" : "none";
     });
-
-    prevBtn.addEventListener("click", () => {
-      index = (index - 1 + slides.length) % slides.length;
-      showSlide(index);
+    thumbs.forEach((t, i) => {
+      t.classList.toggle("active-thumb", i === index);
     });
+    currentSlide = index;
+  }
 
-    // Thumbnails click
-    thumbs.forEach((thumb, i) => {
-      thumb.addEventListener("click", () => showSlide(i));
+  // Next/Prev
+  document.querySelector(".right-arrow").addEventListener("click", () => {
+    showSlide((currentSlide + 1) % slides.length);
+  });
+
+  document.querySelector(".left-arrow").addEventListener("click", () => {
+    showSlide((currentSlide - 1 + slides.length) % slides.length);
+  });
+
+  // ✅ Thumbnail click (stopPropagation lagaya)
+  thumbs.forEach((thumb, i) => {
+    thumb.addEventListener("click", (e) => {
+      e.stopPropagation(); // yeh prevent karega ke slide click bhi na ho
+      showSlide(i);
     });
+  });
 
-    // Auto Slide (optional)
-    setInterval(() => {
-      index = (index + 1) % slides.length;
-      showSlide(index);
-    }, 4000);
+  // ✅ Mobile Tap: slide pe tap → next slide
+  slides.forEach(slide => {
+    slide.addEventListener("click", () => {
+      showSlide((currentSlide + 1) % slides.length);
+    });
+  });
 
-    // First load
-    showSlide(index);
-  </script>
+  // Auto slide
+  setInterval(() => {
+    showSlide((currentSlide + 1) % slides.length);
+  }, 5000);
+
+  // Start first slide
+  showSlide(0);
+</script>
+
 
 </body>
 </html>
