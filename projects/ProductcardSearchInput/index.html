@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PearlHovia - Store</title>
+  <link rel="icon" type="image/png" href="./favicon.jpeg">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/4e0f2a85b8.js" crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9fafc;
+      color: #333;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: #d53838;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .navbar-brand {
+      font-weight: 600;
+      color: #111 !important;
+      letter-spacing: 1px;
+    }
+    .search-bar {
+      width: 260px;
+      border-radius: 20px;
+      border: 1px solid #db4747;
+      padding: 6px 12px;
+      outline: none;
+      transition: 0.3s;
+    }
+    .search-bar:focus {
+      border-color: gold;
+      box-shadow: 0 0 5px rgba(255, 215, 0, 0.4);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('./dp\ \(1\).png') center/cover no-repeat;
+      position: relative;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.4);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 15px;
+    }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .hero button {
+      margin-top: 20px;
+      background: gold;
+      color: #111;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: .3s;
+    }
+    .hero button:hover {
+      background: #e5c100;
+    }
+
+    /* Product Section */
+    #productContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 60px 10%;
+    }
+    .card {
+      border: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform .3s ease;
+      background: #fff;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+    .card-title {
+      font-weight: 600;
+    }
+
+    /* About */
+    .about {
+      background: #fff;
+      text-align: center;
+      padding: 60px 15%;
+    }
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #111;
+    }
+    .about p {
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 25px 10px;
+    }
+    footer a {
+      color: gold;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand" href="#">PearlHovia</a>
+    <div class="d-flex align-items-center ms-auto">
+  <label for="searchInput" class="me-2 fw-semibold text-dark">Search Input</label>
+  <input type="text" id="searchInput" class="form-control search-bar" placeholder="Search products...">
+</div>
+
+    </div>
+  </nav>
+
+ 
+
+  <!-- Products -->
+  <section id="products">
+    <div class="text-center mt-5 mb-3">
+      <h2>Our Best Sellers</h2>
+      <p class="text-muted">Explore the beauty in every creation</p>
+    </div>
+    <div id="productContainer"></div>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <h2>About PearlHovia</h2>
+    <p>I’m Hooria Fatima, founder of PearlHovia — an e-commerce brand offering a variety of homemade & organic products.
+
+🛍 At PearlHovia, we provide:
+
+🧄 Ginger-Garlic Paste
+
+🌶 Traditional Masalas (Haldi, Rice Powder, etc.)
+
+🧼 Organic Skincare (Face Creams, Lip Balms)
+
+💆 Hair Growth Oil & natural self-care products
+
+📦 Products are available via WhatsApp Catalog📲 Follow on Instagram: <a href="https://www.instagram.com/pearlhovia/">@pearlhovia.pk</a>
+
+<br>
+✨ Alongside managing my brand, I’m pursuing my passion as a Web Development Student (IT Web 0.3).
+
+💻 I offer services in:
+
+CV & Resume Creation
+
+Business Websites (Front-End Development)
+
+Shopify Store Setup
+
+Product Photoshoots (White Background)
+🌟 My journey is all about blending entrepreneurship with technology, creating value both in business and web solutions.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 <strong>PearlHovia</strong>. All Rights Reserved.</p>
+    <p>
+      Follow us on 
+      <a href="https://www.instagram.com/pearlhovia/">Instagram</a> |
+      <a href="https://www.facebook.com/hooria.fatima.387506">Facebook</a>
+    </p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript -->
+  <script>
+    const products = [
+      { title: "Pumpkin Seeds", price: "280", brand: "PearlHovia", description: "PEARLHOVIA Premium Pumpkin Seeds – Superfood for Energy, Skin Glow & Hair Health ", image: "./pumpkin.PNG" },
+            { title: "Tumeric Powder", price: "300", brand: "PearlHovia", description: "PEARLHOVIA Turmeric Powder – Pure Desi Haldi | Immunity, Detox & Glowing Skin ", image: "./tumeric.PNG" },
+      { title:  "Chia Seeds", price: "299", brand: "PearlHovia", description: "PEARLHOVIA Premium Chia Seeds – Superfood for Energy, Digestion & Weight Control", image: "./chia.PNG" },
+      { title: "Ceylon Cinnamon Stickst", price: "300", brand: "PearlHovia", description: "PEARLHOVIA Ceylon Cinnamon Sticks – 100% Natural, Low Coumarin & Heart-Friendly Spice", image: "./darchini.PNG" },
+      { title: "Flax Seeds", price: "200", brand: "PearlHovia", description: "PEARLHOVIA Flax Seeds – Omega Rich, Heart Healthy & Natural Superfood", image: "./flaxseed.PNG" },
+      { title: "PCOS Seed Pack", price: "1600", brand: "PearlHovia", description: "5 super seeds ek hi pack me jo aapki health, hormones aur skin ko balance karne me madadgar hain.", image: "./pcos.PNG" },
+      { title: "Ginger & Garic Paste", price: "1200", brand: "PearlHovia", description: "Pearlhovia Ginger & Garlic Paste 🧄✨ Fresh, Natural & Pure Cooking Essential.", image: "./GGMix.PNG" },
+      { title: "Herbal Hair Oil", price: "1200", brand: "PearlHovia", description: "PEARLHOVIA Herbal Hair Oil 🌿 – 100% Natural | Stronger, Longer & Dandruff-Free Hair ✨.", image: "./hairoiI.PNG" },
+      { title: "Desi Ginger Garlic Gold5", price: "600", brand: "PearlHovia", description: "Enjoy authentic Desi Zaiqa with Pearlhovia Desi Ginger Garlic Gold 🥘🌿Made from freshly ground ginger & garlic, this paste saves you time ⏱️ while adding unbeatable flavor 🍛.", image: "./mixpaste.PNG" },
+
+    ];
+
+    const productContainer = document.getElementById("productContainer");
+
+    // Generate card HTML
+    const generateProductCard = (product) => `
+      <div class="card text-center p-3">
+        <img src="${product.image}" class="card-img-top" alt="${product.title}">
+        <div class="card-body">
+          <h5 class="card-title">${product.title}</h5>
+          <p class="text-muted mb-2">${product.brand}</p>
+          <p>${product.description}</p>
+          <p class="fw-bold">Rs. ${product.price}</p>
+          <a href="https://www.instagram.com/pearlhovia/" class="btn btn-dark">Order Now</a>
+        </div>
+      </div>
+    `;
+
+    // Render all products
+    const renderProducts = (list) => {
+      productContainer.innerHTML = list.map(generateProductCard).join("");
+    };
+
+    renderProducts(products);
+
+    // Search Functionality (Live Filter)
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      const term = e.target.value.trim().toLowerCase();
+      if (term === "") {
+        renderProducts(products); // Show all if empty
+        return;
+      }
+      const filtered = products.filter(p =>
+        p.title.toLowerCase().includes(term) ||
+        p.brand.toLowerCase().includes(term)
+      );
+      productContainer.innerHTML = filtered.length
+        ? filtered.map(generateProductCard).join("")
+        : `<h4 class="text-center text-muted mt-5">No Match Found!</h4>`;
+    });
+  </script>
+
+</body>
+</html>

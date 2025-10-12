@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ATM Machine by HooriaFatima</title>
+  <link rel="stylesheet" href="./media.css">
+   <link rel="icon" type="image/png" href="./favicon.jpeg">
+
+  <style>
+
+   
+    @media (max-width:640px){.atm-wrap{grid-template-columns:1fr;align-items:center}.right-panel{flex-direction:row;justify-content:space-between}.card-slot{margin-bottom:8px}}
+  </style>
+</head>
+<body>
+  
+  <div class="atm-wrap">
+    
+    <div class="screen-box">
+      
+      <div class="top-bar">
+        <div class="brand">ASAN ATM MACHINE</div>
+        <div class="status" id="status">Ready</div>
+      </div>
+
+      <div class="display" id="display">
+        <div class="line-main" id="lineMain">Welcome</div>
+        <div class="line-sub" id="lineSub">Insert card or press the card to start</div>
+        <div class="big" id="bigDisplay">----</div>
+      </div>
+
+      <div class="menu" id="menu" style="display:none">
+        <button id="mBalance">Check Balance</button>
+        <button id="mWithdraw">Withdraw</button>
+        <button id="mDeposit">Deposit</button>
+        <button id="mStatement">Mini Statement</button>
+      </div>
+      
+
+      <div class="hint" >Tip: Use the  enter PIN 7272 . </div>
+       <div class="keypad" id="keypad">
+        <div class="key" data-key="1">1</div>
+        <div class="key" data-key="2">2</div>
+        <div class="key" data-key="3">3</div>
+        <div class="key" data-key="4">4</div>
+        <div class="key" data-key="5">5</div>
+        <div class="key" data-key="6">6</div>
+        <div class="key" data-key="7">7</div>
+        <div class="key" data-key="8">8</div>
+        <div class="key" data-key="9">9</div>
+        <div class="key" data-key="C">C</div>
+        <div class="key" data-key="0">0</div>
+        <div class="key" data-key="OK">OK</div>
+      </div>
+    </div>
+
+    <div class="right-panel">
+      <div class="card-slot" id="cardSlot">
+        <img src="./image/c.png" class="card" id="card" alt="" >
+
+       
+      </div>
+
+     
+
+      <div style="display:flex;gap:8px;margin-top:8px;align-items:center">
+        <div class="side-btn" id="btnConfirm">Confirm</div>
+        <div class="side-btn" id="btnEject" style="background:rgb(206, 211, 224);color:black; ">Reject</div>
+      </div>
+       <div class="tag">
+       <p>Created by <strong>Hooria Fatima</strong> | Instagram: 
+    <a href="https://www.instagram.com/hooria_codehub/" target="_blank">@hooria_codehub</a>
+  </p>
+    </div>
+
+      <div class="history" id="history">No transactions yet</div>
+      
+      
+    </div>
+   
+  </div>
+  
+
+  <div class="receipt" id="receipt" aria-hidden="true"></div>
+  
+
+<script>
+  // Initial state
+  let state = { balance: 50000, history: [], pin: "7272" };
+  let mode = "idle", entered = "", auth = false, action = null;
+
+  // Elements
+  const statusEl = document.getElementById("status");
+  const lineMain = document.getElementById("lineMain");
+  const lineSub = document.getElementById("lineSub");
+  const big = document.getElementById("bigDisplay");
+  const menu = document.getElementById("menu");
+  const card = document.getElementById("card");
+  const historyEl = document.getElementById("history");
+  const receipt = document.getElementById("receipt");
+
+  function setDisplay(main, sub, bigTxt = "----") {
+    lineMain.textContent = main;
+    lineSub.textContent = sub;
+    big.textContent = bigTxt;
+  }
+
+  function updateUI() {
+    if (mode === "idle") {
+      setDisplay("Welcome", "Tap card to start");
+      menu.style.display = "none"; statusEl.textContent = "Ready";
+    } else if (mode === "pin") {
+      setDisplay("Enter PIN", "Use keypad then press OK", "PIN: " + "*".repeat(entered.length));
+      menu.style.display = "none"; statusEl.textContent = "Card Inserted";
+    } else if (mode === "menu") {
+      setDisplay("Choose Action", "Select from menu", "");
+      menu.style.display = "grid"; statusEl.textContent = "Authenticated";
+    } else if (mode === "amount") {
+      setDisplay(action === "withdraw" ? "Withdraw amount" : "Deposit amount",
+        "Use keypad then OK", "Rs " + entered);
+      menu.style.display = "none";
+    }
+  }
+
+  // Insert card
+  card.addEventListener("click", () => {
+    if (mode === "idle") { mode = "pin"; entered = ""; card.classList.add("inserted"); updateUI(); }
+  });
+
+  // Eject card
+  document.getElementById("btnEject").addEventListener("click", () => {
+    mode = "idle"; auth = false; entered = ""; action = null; card.classList.remove("inserted"); updateUI();
+  });
+
+  // Keypad
+  document.querySelectorAll(".key").forEach(k => k.addEventListener("click", () => {
+    let key = k.dataset.key;
+    if (key === "C") { entered = ""; return updateUI(); }
+    if (key === "OK") return handleOk();
+    if (mode === "pin" && entered.length < 6) { entered += key; }
+    else if (mode === "amount" && entered.length < 6) { entered += key; }
+    updateUI();
+  }));
+
+  function handleOk() {
+    if (mode === "pin") {
+      if (entered === state.pin) { auth = true; mode = "menu"; }
+      else { setDisplay("Wrong PIN", "Try again"); entered = ""; }
+    } else if (mode === "amount") {
+      let amt = +entered; entered = "";
+      if (!amt) return setDisplay("Invalid", "Try again");
+      if (action === "withdraw") {
+        if (amt > state.balance) return setDisplay("Insufficient", "Transaction canceled");
+        state.balance -= amt; addHistory("Withdraw", amt); showReceipt("Withdraw", amt);
+      } else {
+        state.balance += amt; addHistory("Deposit", amt); showReceipt("Deposit", amt);
+      }
+      mode = "menu";
+    }
+    updateUI();
+  }
+
+  // Menu
+  mBalance.onclick = () => auth && setDisplay("Your Balance", "Available", "Rs " + state.balance);
+  mWithdraw.onclick = () => { if (auth) { action = "withdraw"; mode = "amount"; entered = ""; updateUI(); } }
+  mDeposit.onclick = () => { if (auth) { action = "deposit"; mode = "amount"; entered = ""; updateUI(); } }
+  mStatement.onclick = () => auth && (renderHistory(), setDisplay("Mini Statement", "See below"));
+
+  // History + Receipt
+  function addHistory(type, amt) {
+    state.history.unshift({ type, amount: amt, time: new Date().toLocaleString() });
+    if (state.history.length > 5) state.history.length = 5;
+    renderHistory();
+  }
+  function renderHistory() {
+    historyEl.innerHTML = state.history.length ? state.history.map(h =>
+      `<div>${h.time} - ${h.type}: Rs ${h.amount}</div>`).join("") : "No transactions yet";
+  }
+  function showReceipt(type, amt) {
+    receipt.innerHTML = `<b>${type} Receipt</b><br>Amount: Rs ${amt}<br>Balance: Rs ${state.balance}`;
+    receipt.classList.add("show"); setTimeout(() => receipt.classList.remove("show"), 3000);
+  }
+
+  updateUI();
+</script>
+
+</body>
+</html>
